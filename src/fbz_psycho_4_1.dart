@@ -1,6 +1,11 @@
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
-    final output = FizzBuzzInitiator()(i)()()()();
+    final output = FizzBuzzInitiator()
+        .run(number: i)
+        .checkToFizzBuzz()
+        .checkToFizz()
+        .checkToBuzz()
+        .map();
     print(output);
   }
 }
@@ -26,6 +31,10 @@ class FizzBuzzInitiator {
     final fzd = FizzBuzzData(number: number, output: '');
     return FizzBuzzCheckable(data: fzd);
   }
+
+  FizzBuzzCheckable run({required int number}) {
+    return call(number);
+  }
 }
 
 class FizzBuzzCheckable {
@@ -42,6 +51,8 @@ class FizzBuzzCheckable {
     }
     return FizzCheckable(data: newData, isCheckedData: notCheck);
   }
+
+  FizzCheckable checkToFizzBuzz() => call();
 }
 
 class FizzCheckable {
@@ -65,6 +76,8 @@ class FizzCheckable {
     }
     return BuzzCheckable(data: newData, isCheckedData: notCheck);
   }
+
+  BuzzCheckable checkToFizz() => call();
 }
 
 class BuzzCheckable {
@@ -86,6 +99,8 @@ class BuzzCheckable {
     }
     return Mappable(data: newData);
   }
+
+  Mappable checkToBuzz() => call();
 }
 
 class Mappable {
@@ -99,4 +114,6 @@ class Mappable {
     }
     return data.output;
   }
+
+  String map() => call();
 }
