@@ -1,22 +1,22 @@
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
-    PrinterType.from(number: i).print(number: i);
+    OutputType.from(number: i).output(number: i);
   }
 }
 
-enum PrinterType {
-  fizzbuzz(FizzBuzzPrinter()),
-  fizz(FizzPrinter()),
-  buzz(BuzzPrinter()),
-  num(NumberPrinter());
+enum OutputType {
+  fizzbuzz(FizzBuzzOutput()),
+  fizz(FizzOutput()),
+  buzz(BuzzOutput()),
+  num(NumberOutput());
 
-  const PrinterType(this.print);
+  const OutputType(this.output);
 
-  final Printer print;
+  final Output output;
 
-  static PrinterType from({required int number}) {
-    for (var output in PrinterType.values) {
-      if (number % output.print.divisor == 0) {
+  static OutputType from({required int number}) {
+    for (var output in OutputType.values) {
+      if (number % output.output.divisor == 0) {
         return output;
       }
     }
@@ -24,7 +24,7 @@ enum PrinterType {
   }
 }
 
-abstract interface class Printer {
+abstract interface class Output {
   static const fbOutput = 'FizzBuzz,';
   static const fOutput = 'Fizz,';
   static const bOutput = 'Buzz,';
@@ -37,46 +37,46 @@ abstract interface class Printer {
   void call({required int number});
 }
 
-class FizzBuzzPrinter implements Printer {
-  const FizzBuzzPrinter();
+class FizzBuzzOutput implements Output {
+  const FizzBuzzOutput();
 
-  final int _divisor = Printer.fbDivisor;
-
-  @override
-  int get divisor => _divisor;
-
-  @override
-  void call({required int number}) => print('${Printer.fbOutput}');
-}
-
-class FizzPrinter implements Printer {
-  const FizzPrinter();
-
-  final int _divisor = Printer.fDivisor;
+  final int _divisor = Output.fbDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print('${Printer.fOutput}');
+  void call({required int number}) => print('${Output.fbOutput}');
 }
 
-class BuzzPrinter implements Printer {
-  const BuzzPrinter();
+class FizzOutput implements Output {
+  const FizzOutput();
 
-  final int _divisor = Printer.bDivisor;
+  final int _divisor = Output.fDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print('${Printer.bOutput}');
+  void call({required int number}) => print('${Output.fOutput}');
 }
 
-class NumberPrinter implements Printer {
-  const NumberPrinter();
+class BuzzOutput implements Output {
+  const BuzzOutput();
 
-  final int _divisor = Printer.nDivisor;
+  final int _divisor = Output.bDivisor;
+
+  @override
+  int get divisor => _divisor;
+
+  @override
+  void call({required int number}) => print('${Output.bOutput}');
+}
+
+class NumberOutput implements Output {
+  const NumberOutput();
+
+  final int _divisor = Output.nDivisor;
 
   @override
   int get divisor => _divisor;
