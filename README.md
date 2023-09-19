@@ -12,4 +12,4 @@ Various ways to solve one well-known riddle
 5. [Pipeline-oriented programming with callable objects](src/fbz_psycho_4.dart)
    * [Pipeline-oriented programming by interconnected objects](src/fbz_psycho_4_1.dart)
 6. [Decorator Pattern](src/fbz_psycho_5.dart)
-7. 
+7. [Chain of Responsibility Pattern](src/fbz_psycho_6.dart)
