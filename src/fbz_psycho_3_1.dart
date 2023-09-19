@@ -1,6 +1,6 @@
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
-    final output = FizzBazzOutput(number: i, output: '')
+    final output = FizzBazzData(number: i, output: '')
         .handle(divisor: 15, message: 'FizzBuzz,')
         .handle(divisor: 3, message: 'Fizz,')
         .handle(divisor: 5, message: 'Buzz,')
@@ -9,16 +9,18 @@ void main(List<String> args) {
   }
 }
 
-class FizzBazzOutput {
-  const FizzBazzOutput({
+class FizzBazzData {
+  const FizzBazzData({
     required this.number,
     required this.output,
   });
 
   final String output;
   final int number;
+}
 
-  FizzBazzOutput handle({
+extension on FizzBazzData {
+  FizzBazzData handle({
     required int divisor,
     required String message,
   }) {
@@ -28,7 +30,7 @@ class FizzBazzOutput {
     if (number % divisor != 0) {
       return this;
     }
-    return FizzBazzOutput(
+    return FizzBazzData(
       number: number,
       output: message,
     );
