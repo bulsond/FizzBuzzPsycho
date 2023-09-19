@@ -8,8 +8,8 @@ void main(List<String> args) {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 final outputs = <(bool Function(int value), void Function(int value))>[
-  ((v) => v % 15 == 0, (v) => print('FizzBuzz,')),
-  ((v) => v % 3 == 0, (v) => print('Fizz,')),
-  ((v) => v % 5 == 0, (v) => print('Buzz,')),
+  ((v) => v % 15 == 0, (_) => print('FizzBuzz,')),
+  ((v) => v % 3 == 0, (_) => print('Fizz,')),
+  ((v) => v % 5 == 0, (_) => print('Buzz,')),
   ((v) => true, (v) => print('${v},')),
 ];
