@@ -1,9 +1,12 @@
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/// Pipeline-oriented programming with callable objects
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     final output = FizzBuzzInitiator()(i)()()()();
     print(output);
   }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 class FizzBuzzData {
   const FizzBuzzData({

@@ -1,3 +1,5 @@
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/// Pipeline-oriented programming by interconnected objects
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     final output = FizzBuzzInitiator()
@@ -9,6 +11,7 @@ void main(List<String> args) {
     print(output);
   }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 class FizzBuzzData {
   const FizzBuzzData({

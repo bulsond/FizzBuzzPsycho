@@ -1,3 +1,5 @@
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/// Pipeline-oriented programming by extension methods
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     final output = FizzBazzData(number: i, output: '')
@@ -8,6 +10,7 @@ void main(List<String> args) {
     print(output);
   }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 class FizzBazzData {
   const FizzBazzData({

@@ -1,8 +1,11 @@
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/// Replacing if-else conditions with enum
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     OutputType.selectBy(number: i).output(number: i);
   }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 enum OutputType {
   fizzbuzz(FizzBuzzOutput()),

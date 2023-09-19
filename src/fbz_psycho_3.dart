@@ -1,3 +1,5 @@
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/// Pipeline-oriented programming by immutable objects
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     final output = FizzBazzOutput(number: i, output: '')
@@ -8,6 +10,7 @@ void main(List<String> args) {
     print(output);
   }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 class FizzBazzOutput {
   const FizzBazzOutput({
