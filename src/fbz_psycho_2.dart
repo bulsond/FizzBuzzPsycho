@@ -1,6 +1,6 @@
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
-    OutputType.from(number: i).output(number: i);
+    OutputType.selectBy(number: i).output(number: i);
   }
 }
 
@@ -14,7 +14,7 @@ enum OutputType {
 
   final Output output;
 
-  static OutputType from({required int number}) {
+  static OutputType selectBy({required int number}) {
     for (var output in OutputType.values) {
       if (number % output.output.divisor == 0) {
         return output;
