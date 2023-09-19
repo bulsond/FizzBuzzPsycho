@@ -19,13 +19,16 @@ class FizzBazzData {
   final int number;
 }
 
-extension FizzBazzExts on FizzBazzData {
-  FizzBazzData handle({required int divisor, required String message}) {
+extension on FizzBazzData {
+  FizzBazzData handle({
+    required int divisor,
+    required String message,
+  }) {
     if (output.isNotEmpty) {
-      return this; // уже обработан
+      return this;
     }
     if (number % divisor != 0) {
-      return this; // не подходит под условие делимости
+      return this;
     }
     return FizzBazzData(
       number: number,
