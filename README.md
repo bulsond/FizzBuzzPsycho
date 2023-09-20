@@ -13,3 +13,4 @@ Various ways to solve one well-known riddle
    * [Pipeline-oriented programming by interconnected objects](src/fbz_psycho_4_1.dart)
 6. [Decorator Pattern](src/fbz_psycho_5.dart)
 7. [Chain of Responsibility Pattern](src/fbz_psycho_6.dart)
+8. [Using a StreamController](src/fbz_psycho_7.dart)

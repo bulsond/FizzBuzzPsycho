@@ -1,7 +1,7 @@
 import 'dart:async';
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-/// Using Stream
+/// Using a StreamController
 void main(List<String> args) {
   final fbOutput = FizzBuzzOutput(
     controller: StreamController(),
