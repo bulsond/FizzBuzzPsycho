@@ -1,5 +1,5 @@
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-/// Using Railway-Oriented Programming Approach
+/// Using Railway-Oriented Programming approach
 void main(List<String> args) {
   for (var i = 0; i < 31; i++) {
     final result = FizzBuzzResult.number(number: i)
