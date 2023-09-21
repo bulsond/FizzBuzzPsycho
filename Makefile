@@ -1,4 +1,4 @@
-.PHONY: setup debug release clean format
+.PHONY: all setup debug release clean get test analyze check format _prepare-build-dir
 
 # Build directory
 BUILD_DIR := build
@@ -28,10 +28,24 @@ release: _prepare-build-dir
 clean:
 	@rm -rf build/
 
+# Get dependencies
+get:
+	@dart pub get
+
 # Run tests
-#test: debug
-#	@echo "Running tests..."
-#	@(cd $(BUILD_DIR) && ctest --verbose)
+test: get
+	@dart test --debug --coverage=.coverage --platform vm
+
+# Analyze code
+analyze: get format
+	@echo "Analyze the code"
+	@dart analyze --fatal-infos --fatal-warnings
+
+# Check code
+check: analyze
+	@dart pub publish --dry-run
+	@dart pub global activate pana
+	@pana --json --no-warning --line-length 80 > log.pana.json
 
 # Format code
 format:

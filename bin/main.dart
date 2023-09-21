@@ -22,14 +22,14 @@ void main(List<String> args) => runZonedGuarded<void>(() async {
       final parser = ArgParser()..addCommand('fbz');
       final option = parser.parse(args).command?.name ??
           io.Platform.environment['FBZ'] ??
-          String.fromEnvironment('FBZ', defaultValue: 'classic_1');
+          const String.fromEnvironment('FBZ', defaultValue: 'classic_1');
       switch (option) {
         case 'classic_1':
           fbzClassic1();
         case 'classic_2':
           fbzClassic2();
         case 'fox_algorithm':
-          fbzFoxAlgorithm();
+          fbzFox$Algorithm();
         case 'psycho_1_1':
           fbzPsycho1$1();
         case 'psycho_1':

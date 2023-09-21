@@ -21,7 +21,7 @@ void main() => group('Benchmark', () {
       final cases = <({String name, FutureOr<void> Function() fn})>[
         (name: 'classic_1', fn: fbzClassic1),
         (name: 'classic_2', fn: fbzClassic2),
-        (name: 'fox_algorithm', fn: fbzFoxAlgorithm),
+        (name: 'fox_algorithm', fn: fbzFox$Algorithm),
         (name: 'psycho_1_1', fn: fbzPsycho1$1),
         (name: 'psycho_1', fn: fbzPsycho1),
         (name: 'psycho_2', fn: fbzPsycho2),
@@ -50,7 +50,7 @@ void main() => group('Benchmark', () {
             }
           },
           zoneSpecification: ZoneSpecification(
-            print: (_, __, ___, String msg) {},
+            print: (_, __, ___, msg) {},
           ),
         );
         await completer.future;
@@ -67,6 +67,7 @@ final class Benchmark extends AsyncBenchmarkBase {
 
   final FutureOr<void> Function() fn;
 
+  @override
   Future<void> run() async {
     await fn();
   }

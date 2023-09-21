@@ -10,8 +10,8 @@ void fbzPsycho1() {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 final outputs = <bool Function(int value), void Function(int value)>{
-  ((v) => v % fizzBuzzNumber == 0): (_) => print('FizzBuzz,'),
-  ((v) => v % fizzNumber == 0): (_) => print('Fizz,'),
-  ((v) => v % buzzNumber == 0): (_) => print('Buzz,'),
-  ((_) => true): (v) {},
+  (v) => v % fizzBuzzNumber == 0: (_) => print('FizzBuzz,'),
+  (v) => v % fizzNumber == 0: (_) => print('Fizz,'),
+  (v) => v % buzzNumber == 0: (_) => print('Buzz,'),
+  (_) => true: (v) {},
 };

@@ -25,13 +25,11 @@ class FizzBuzzResult {
   final int number;
   final String message;
 
-  factory FizzBuzzResult.number({required int number}) {
-    return FizzBuzzResult(number: number, message: '');
-  }
+  factory FizzBuzzResult.number({required int number}) =>
+      FizzBuzzResult(number: number, message: '');
 
-  factory FizzBuzzResult.message({required String message}) {
-    return FizzBuzzResult(number: -1, message: message);
-  }
+  factory FizzBuzzResult.message({required String message}) =>
+      FizzBuzzResult(number: -1, message: message);
 
   bool get isNumber => message.isEmpty;
   bool get isMessage => message.isNotEmpty;

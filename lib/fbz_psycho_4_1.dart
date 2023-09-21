@@ -4,7 +4,7 @@ import 'package:fbz/src/constant.dart';
 /// Pipeline-oriented programming by interconnected objects
 void fbzPsycho4$1() {
   for (var i = 0; i < totalCount; i++) {
-    final output = FizzBuzzInitiator()
+    final output = const FizzBuzzInitiator()
         .run(number: i)
         .checkToFizzBuzz()
         .checkToFizz()
@@ -25,9 +25,8 @@ class FizzBuzzData {
   final String output;
   final int number;
 
-  FizzBuzzData copyWith({required String output}) {
-    return FizzBuzzData(number: number, output: output);
-  }
+  FizzBuzzData copyWith({required String output}) =>
+      FizzBuzzData(number: number, output: output);
 }
 
 class FizzBuzzInitiator {
@@ -38,9 +37,7 @@ class FizzBuzzInitiator {
     return FizzBuzzCheckable(data: fzd);
   }
 
-  FizzBuzzCheckable run({required int number}) {
-    return call(number);
-  }
+  FizzBuzzCheckable run({required int number}) => call(number);
 }
 
 class FizzBuzzCheckable {
@@ -49,8 +46,8 @@ class FizzBuzzCheckable {
   final FizzBuzzData data;
 
   FizzCheckable call() {
-    bool notCheck = false;
-    FizzBuzzData newData = data;
+    var notCheck = false;
+    var newData = data;
     if (data.number % fizzBuzzNumber == 0) {
       notCheck = true;
       newData = data.copyWith(output: 'FizzBuzz,');
@@ -74,8 +71,8 @@ class FizzCheckable {
         isCheckedData: isCheckedData,
       );
     }
-    bool notCheck = false;
-    FizzBuzzData newData = data;
+    var notCheck = false;
+    var newData = data;
     if (data.number % fizzNumber == 0) {
       notCheck = true;
       newData = data.copyWith(output: 'Fizz,');
@@ -99,7 +96,7 @@ class BuzzCheckable {
     if (isCheckedData) {
       return Mappable(data: data);
     }
-    FizzBuzzData newData = data;
+    var newData = data;
     if (data.number % buzzNumber == 0) {
       newData = data.copyWith(output: 'Buzz,');
     }

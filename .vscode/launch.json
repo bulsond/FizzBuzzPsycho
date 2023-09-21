@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Fox#1",
+            "name": "Fox Algorithm",
             "type": "dart",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -12,6 +12,21 @@
             "program": "${workspaceFolder}/bin/main.dart",
             "args": [
                 "fox_algorithm"
+            ],
+            "toolArgs": [],
+            "console": "debugConsole",
+        },
+        {
+            "name": "Fox FFI",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "local"
+            },
+            "program": "${workspaceFolder}/bin/main.dart",
+            "args": [
+                "fox_ffi"
             ],
             "toolArgs": [],
             "console": "debugConsole",
@@ -35,6 +50,31 @@
                 "--file-reporter=json:.coverage/tests.json",
                 "--timeout=30s",
                 "--concurrency=12"
+                /* "--name=handles failed connection attempts" */
+            ],
+            "console": "debugConsole",
+            "runTestsOnDevice": false,
+            "templateFor": "test",
+        },
+        {
+            "name": "[test] Benchmark",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "test"
+            },
+            "program": "${workspaceFolder}/test/benchmark_test.dart",
+            "args": [],
+            "toolArgs": [
+                "--color",
+                "--debug",
+                "--coverage=.coverage",
+                "--reporter=expanded",
+                "--platform=vm", // chrome
+                "--file-reporter=json:.coverage/tests.json",
+                "--timeout=30s",
+                "--concurrency=1"
                 /* "--name=handles failed connection attempts" */
             ],
             "console": "debugConsole",

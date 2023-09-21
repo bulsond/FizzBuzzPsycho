@@ -3,7 +3,7 @@ import 'package:fbz/src/constant.dart';
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Decorator Pattern
 void fbzPsycho5() {
-  final fbOutput = FizzBuzzOutput(
+  const fbOutput = FizzBuzzOutput(
     outputCapable: BuzzCapable(
       outputCapable: FizzCapable(
         outputCapable: FizzBuzzCapable(
@@ -57,6 +57,7 @@ abstract class OutputCapable {
 class BuzzCapable extends OutputCapable {
   const BuzzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override
@@ -69,6 +70,7 @@ class BuzzCapable extends OutputCapable {
 class FizzCapable extends OutputCapable {
   const FizzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override
@@ -81,6 +83,7 @@ class FizzCapable extends OutputCapable {
 class FizzBuzzCapable extends OutputCapable {
   const FizzBuzzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override

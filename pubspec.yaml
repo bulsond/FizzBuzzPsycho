@@ -2,6 +2,20 @@ name: fbz
 
 version: 0.0.1-pre.0
 
+homepage: https://github.com/PlugFox/FizzBuzzPsycho
+repository: https://github.com/PlugFox/FizzBuzzPsycho
+issue_tracker: https://github.com/PlugFox/FizzBuzzPsycho/issues
+funding:
+  - https://www.buymeacoffee.com/plugfox
+  - https://www.patreon.com/plugfox
+  - https://boosty.to/plugfox
+topics:
+  - fizzbuzz
+  - dart
+  - algorithm
+  - cli
+  - benchmark
+
 platforms:
   linux:
   macos:

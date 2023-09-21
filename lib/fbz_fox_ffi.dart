@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:fbz/src/constant.dart';
 
-void fbzFox$Algorithm() {
+void fbzFox$FFI() {
   for (var i = 0, f = fizzNumber, b = buzzNumber;
       i < totalCount;
       i++, f++, b++) {

@@ -5,21 +5,19 @@ import 'package:fbz/src/constant.dart';
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Using a StreamController
 Future<void> fbzPsycho7() async {
-  final controller = StreamController(sync: true);
+  final controller = StreamController<Object?>(sync: true);
   final fbOutput = FizzBuzzOutput(
     controller: controller,
-    fizzBuzzTrans: FizzBuzzTrans(),
-    fizzTrans: FizzTrans(),
-    buzzTrans: BuzzTrans(),
-  );
-
-  fbOutput.init();
+    fizzBuzzTrans: const FizzBuzzTrans(),
+    fizzTrans: const FizzTrans(),
+    buzzTrans: const BuzzTrans(),
+  )..init();
 
   for (var i = 0; i < totalCount; i++) {
     fbOutput.outputFor(number: i);
   }
 
-  controller.close();
+  await controller.close();
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -31,7 +29,7 @@ class FizzBuzzOutput {
     required this.buzzTrans,
   });
 
-  final StreamController controller;
+  final StreamController<Object?> controller;
   final FBTrans fizzBuzzTrans;
   final FBTrans fizzTrans;
   final FBTrans buzzTrans;

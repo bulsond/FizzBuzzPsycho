@@ -27,7 +27,7 @@ void main() => group(
         });
 
         test('fox_algorithm', () {
-          expectLater(handlePrints(fbzFoxAlgorithm), matcher);
+          expectLater(handlePrints(fbzFox$Algorithm), matcher);
         });
 
         test('classic_1', () {
@@ -91,11 +91,11 @@ Stream<String> handlePrints(FutureOr<void> Function() fn) {
       try {
         await fn();
       } finally {
-        controller.close();
+        await controller.close();
       }
     },
     zoneSpecification: ZoneSpecification(
-      print: (_, __, ___, String msg) => controller.add(msg),
+      print: (_, __, ___, msg) => controller.add(msg),
     ),
   );
   return controller.stream;

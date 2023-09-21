@@ -3,7 +3,7 @@ import 'package:fbz/src/constant.dart';
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Chain of Responsibility Pattern
 void fbzPsycho6() {
-  final output = FizzBuzzOutput(
+  const output = FizzBuzzOutput(
     handler: FizzBuzzHandler(
       next: FizzHandler(
         next: BuzzHandler(
