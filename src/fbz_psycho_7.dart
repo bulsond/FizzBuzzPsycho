@@ -2,19 +2,20 @@ import 'dart:async';
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Using a StreamController
-void main(List<String> args) {
+Future<void> main(List<String> args) async {
+  final controller = StreamController<Object?>(sync: true);
   final fbOutput = FizzBuzzOutput(
-    controller: StreamController(),
+    controller: controller,
     fizzBuzzTrans: FizzBuzzTrans(),
     fizzTrans: FizzTrans(),
     buzzTrans: BuzzTrans(),
-  );
-
-  fbOutput.init();
+  )..init();
 
   for (var i = 0; i < 31; i++) {
     fbOutput.outputFor(number: i);
   }
+
+  await controller.close();
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
