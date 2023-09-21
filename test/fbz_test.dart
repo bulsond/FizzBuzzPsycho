@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
-import 'package:fbz/fbz_fox_1.dart';
+import 'package:fbz/fbz_fox_algorithm.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -26,8 +26,8 @@ void main() => group(
           matcher = emitsInOrder(<Object?>[...output, emitsDone]);
         });
 
-        test('fox_1', () {
-          expectLater(handlePrints(fbzFox1), matcher);
+        test('fox_algorithm', () {
+          expectLater(handlePrints(fbzFoxAlgorithm), matcher);
         });
 
         test('classic_1', () {

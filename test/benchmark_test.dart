@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:benchmark_harness/benchmark_harness.dart';
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
-import 'package:fbz/fbz_fox_1.dart';
+import 'package:fbz/fbz_fox_algorithm.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -21,7 +21,7 @@ void main() => group('Benchmark', () {
       final cases = <({String name, FutureOr<void> Function() fn})>[
         (name: 'classic_1', fn: fbzClassic1),
         (name: 'classic_2', fn: fbzClassic2),
-        (name: 'fox_1', fn: fbzFox1),
+        (name: 'fox_algorithm', fn: fbzFoxAlgorithm),
         (name: 'psycho_1_1', fn: fbzPsycho1$1),
         (name: 'psycho_1', fn: fbzPsycho1),
         (name: 'psycho_2', fn: fbzPsycho2),

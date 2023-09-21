@@ -4,7 +4,7 @@ import 'dart:io' as io;
 import 'package:args/args.dart';
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
-import 'package:fbz/fbz_fox_1.dart';
+import 'package:fbz/fbz_fox_algorithm.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -28,8 +28,8 @@ void main(List<String> args) => runZonedGuarded<void>(() async {
           fbzClassic1();
         case 'classic_2':
           fbzClassic2();
-        case 'fox_1':
-          fbzFox1();
+        case 'fox_algorithm':
+          fbzFoxAlgorithm();
         case 'psycho_1_1':
           fbzPsycho1$1();
         case 'psycho_1':

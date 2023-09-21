@@ -11,7 +11,7 @@
             },
             "program": "${workspaceFolder}/bin/main.dart",
             "args": [
-                "fox_1"
+                "fox_algorithm"
             ],
             "toolArgs": [],
             "console": "debugConsole",
