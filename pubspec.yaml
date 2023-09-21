@@ -1,0 +1,21 @@
+name: fbz
+
+version: 0.0.1-pre.0
+
+platforms:
+  linux:
+  macos:
+  windows:
+
+environment:
+  sdk: '>=3.1.1 <4.0.0'
+
+dependencies:
+  ffi: ^2.1.0
+  meta: ^1.10.0
+  stack_trace: ^1.11.1
+
+dev_dependencies:
+  lints: ^2.0.1
+  test: ^1.24.2
+  benchmark_harness: ^2.2.2
