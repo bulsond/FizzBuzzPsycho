@@ -14,4 +14,4 @@ Various ways to solve one well-known riddle
 6. [Decorator Pattern](src/fbz_psycho_5.dart)
 7. [Chain of Responsibility Pattern](src/fbz_psycho_6.dart)
 8. [Using a StreamController](src/fbz_psycho_7.dart)
-9. [Using Railway-oriented Programming approach](src/fbz_psycho_8.dart)
+9. [Using a Result object](src/fbz_psycho_8.dart)
