@@ -28,9 +28,12 @@ dependencies:
   args: ^2.4.0
   ffi: ^2.1.0
   meta: ^1.10.0
+  path: ^1.8.3
   stack_trace: ^1.11.1
+  benchmark_harness: ^2.2.2
 
 dev_dependencies:
-  lints: ^2.0.1
-  test: ^1.24.2
-  benchmark_harness: ^2.2.2
+  lints: ^2.1.1
+  test: ^1.24.6
+  coverage: ^1.6.3
+  vm_service: ^10.0.0

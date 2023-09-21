@@ -1,0 +1,3 @@
+LIBRARY   libfizzbuzz
+EXPORTS
+   fizz_buzz

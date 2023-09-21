@@ -8,6 +8,6 @@ void fbzClassic2() {
       print('Fizz,');
     } else if (i % buzzNumber == 0) {
       print('Buzz,');
-    } else {}
+    }
   }
 }

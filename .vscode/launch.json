@@ -11,10 +11,10 @@
             },
             "program": "${workspaceFolder}/bin/main.dart",
             "args": [
-                "fox_algorithm"
+                "-a=fox_algorithm"
             ],
             "toolArgs": [],
-            "console": "debugConsole",
+            "console": "debugConsole"
         },
         {
             "name": "Fox FFI",
@@ -26,10 +26,27 @@
             },
             "program": "${workspaceFolder}/bin/main.dart",
             "args": [
-                "fox_ffi"
+                "-a=fox_ffi"
             ],
             "toolArgs": [],
             "console": "debugConsole",
+            "preLaunchTask": "build:ffi:release"
+        },
+        {
+            "name": "Benchmark",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "test"
+            },
+            "program": "${workspaceFolder}/bin/benchmark.dart",
+            "args": [],
+            "toolArgs": [],
+            "console": "debugConsole",
+            "runTestsOnDevice": false,
+            "templateFor": "test",
+            "preLaunchTask": "build:ffi:release"
         },
         {
             "name": "[test] FBZ",
@@ -50,36 +67,11 @@
                 "--file-reporter=json:.coverage/tests.json",
                 "--timeout=30s",
                 "--concurrency=12"
-                /* "--name=handles failed connection attempts" */
             ],
             "console": "debugConsole",
             "runTestsOnDevice": false,
             "templateFor": "test",
-        },
-        {
-            "name": "[test] Benchmark",
-            "type": "dart",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "env": {
-                "ENVIRONMENT": "test"
-            },
-            "program": "${workspaceFolder}/test/benchmark_test.dart",
-            "args": [],
-            "toolArgs": [
-                "--color",
-                "--debug",
-                "--coverage=.coverage",
-                "--reporter=expanded",
-                "--platform=vm", // chrome
-                "--file-reporter=json:.coverage/tests.json",
-                "--timeout=30s",
-                "--concurrency=1"
-                /* "--name=handles failed connection attempts" */
-            ],
-            "console": "debugConsole",
-            "runTestsOnDevice": false,
-            "templateFor": "test",
+            "preLaunchTask": "build:ffi:release"
         },
     ]
 }

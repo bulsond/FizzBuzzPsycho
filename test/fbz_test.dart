@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
 import 'package:fbz/fbz_fox_algorithm.dart';
+import 'package:fbz/fbz_fox_ffi.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -28,6 +29,10 @@ void main() => group(
 
         test('fox_algorithm', () {
           expectLater(handlePrints(fbzFox$Algorithm), matcher);
+        });
+
+        test('fox_ffi', () {
+          expectLater(handlePrints(fbzFox$FFI), matcher);
         });
 
         test('classic_1', () {

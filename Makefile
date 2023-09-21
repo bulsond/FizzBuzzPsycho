@@ -1,4 +1,4 @@
-.PHONY: all setup debug release clean get test analyze check format _prepare-build-dir
+.PHONY: all setup ffi-debug ffi-release clean get test analyze check format _prepare-build-dir
 
 # Build directory
 BUILD_DIR := build
@@ -11,14 +11,14 @@ setup:
 	@pre-commit install
 
 # Build server library
-debug: _prepare-build-dir
+ffi-debug: _prepare-build-dir
 	@echo "Building debug..."
 	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug .. && ninja
 	@echo "Make a link to compile_commands.json"
 	@rm -f compile_commands.json && ln -s build/compile_commands.json compile_commands.json
 
 # Build server library
-release: _prepare-build-dir
+ffi-release: _prepare-build-dir
 	@echo "Building release..."
 	@cd $(BUILD_DIR) && cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release .. && ninja
 	@echo "Make a link to compile_commands.json"

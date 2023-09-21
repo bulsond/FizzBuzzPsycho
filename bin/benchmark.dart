@@ -4,6 +4,7 @@ import 'package:benchmark_harness/benchmark_harness.dart';
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
 import 'package:fbz/fbz_fox_algorithm.dart';
+import 'package:fbz/fbz_fox_ffi.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -15,13 +16,14 @@ import 'package:fbz/fbz_psycho_5.dart';
 import 'package:fbz/fbz_psycho_6.dart';
 import 'package:fbz/fbz_psycho_7.dart';
 import 'package:fbz/fbz_psycho_8.dart';
-import 'package:test/test.dart';
 
-void main() => group('Benchmark', () {
+void main() => Future<void>(() async {
+      $initFox$FFI$DynamicLibrary();
       final cases = <({String name, FutureOr<void> Function() fn})>[
+        (name: 'fox_algorithm', fn: fbzFox$Algorithm),
+        (name: 'fox_ffi', fn: fbzFox$FFI),
         (name: 'classic_1', fn: fbzClassic1),
         (name: 'classic_2', fn: fbzClassic2),
-        (name: 'fox_algorithm', fn: fbzFox$Algorithm),
         (name: 'psycho_1_1', fn: fbzPsycho1$1),
         (name: 'psycho_1', fn: fbzPsycho1),
         (name: 'psycho_2', fn: fbzPsycho2),
@@ -34,32 +36,29 @@ void main() => group('Benchmark', () {
         (name: 'psycho_7', fn: fbzPsycho7),
         (name: 'psycho_8', fn: fbzPsycho8),
       ];
-      test('Measure all', () async {
-        final results = <({String name, double score})>[];
-        final completer = Completer<void>.sync();
-        runZoned<void>(
-          () async {
-            try {
-              for (final c in cases) {
-                final benchmark = Benchmark(c.name, c.fn);
-                results.add((name: c.name, score: await benchmark.measure()));
-              }
-              completer.complete();
-            } on Object catch (error, stackTrace) {
-              completer.completeError(error, stackTrace);
+      final results = <({String name, double score})>[];
+      final completer = Completer<void>.sync();
+      runZoned<void>(
+        () async {
+          try {
+            for (final c in cases) {
+              final benchmark = Benchmark(c.name, c.fn);
+              results.add((name: c.name, score: await benchmark.measure()));
             }
-          },
-          zoneSpecification: ZoneSpecification(
-            print: (_, __, ___, msg) {},
-          ),
-        );
-        await completer.future;
-        results.sort((a, b) => a.score.compareTo(b.score));
-        for (final r in results) {
-          print('${r.name}: ${r.score}');
-        }
-        expect(results.length, equals(cases.length));
-      });
+            completer.complete();
+          } on Object catch (error, stackTrace) {
+            completer.completeError(error, stackTrace);
+          }
+        },
+        zoneSpecification: ZoneSpecification(
+          print: (_, __, ___, msg) {},
+        ),
+      );
+      await completer.future;
+      results.sort((a, b) => a.score.compareTo(b.score));
+      for (final r in results) {
+        print('${r.name}: ${r.score.round()}');
+      }
     });
 
 final class Benchmark extends AsyncBenchmarkBase {

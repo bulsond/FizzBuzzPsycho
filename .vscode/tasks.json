@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build debug",
+            "label": "build:ffi:debug",
             "type": "shell",
-            "command": "make debug",
+            "command": "make ffi-debug",
             "windows": {},
             "linux": {},
             "osx": {},
@@ -16,12 +16,12 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "detail": "compiler: clang"
+            "detail": "Build FFI (debug)"
         },
         {
-            "label": "build release",
+            "label": "build:ffi:release",
             "type": "shell",
-            "command": "make release",
+            "command": "make ffi-release",
             "windows": {},
             "linux": {},
             "osx": {},
@@ -33,10 +33,10 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "detail": "compiler: clang"
+            "detail": "Build FFI (release)"
         },
         {
-            "label": "build clean",
+            "label": "build:clean",
             "windows": {},
             "linux": {},
             "osx": {},
@@ -48,7 +48,7 @@
                 "isDefault": false
             },
             "problemMatcher": [],
-            "detail": "clear"
+            "detail": "Clear build artifacts"
         }
     ]
 }

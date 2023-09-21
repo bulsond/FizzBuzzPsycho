@@ -5,6 +5,7 @@ import 'package:args/args.dart';
 import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
 import 'package:fbz/fbz_fox_algorithm.dart';
+import 'package:fbz/fbz_fox_ffi.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -18,18 +19,40 @@ import 'package:fbz/fbz_psycho_7.dart';
 import 'package:fbz/fbz_psycho_8.dart';
 import 'package:stack_trace/stack_trace.dart' as st;
 
+/// Router for all FizzBuzz algorithms
+///
+/// How to run:
+/// dart run bin/main.dart -a=fox_algorithm
+///
+/// dart compile exe bin/main.dart -o fbz.exe
+/// ./fbz.exe -a=fox_algorithm
 void main(List<String> args) => runZonedGuarded<void>(() async {
-      final parser = ArgParser()..addCommand('fbz');
-      final option = parser.parse(args).command?.name ??
-          io.Platform.environment['FBZ'] ??
-          const String.fromEnvironment('FBZ', defaultValue: 'classic_1');
+      final parser = ArgParser()
+        ..addOption('algorithm', abbr: 'a', help: 'Algorithm to use')
+        ..addFlag('help', abbr: 'h', help: 'Show help', negatable: false);
+      final argResults = parser.parse(args);
+      if (argResults['help'] == true) {
+        print(parser.usage);
+        io.exit(0);
+      }
+      final option = (argResults['algorithm'] ??
+              io.Platform.environment['FBZ_ALGORITHM'] ??
+              const String.fromEnvironment('FBZ_ALGORITHM', defaultValue: ''))
+          .toString()
+          .trim()
+          .replaceAll(' ', '')
+          .replaceAll('=', '')
+          .replaceAll('-', '')
+          .toLowerCase();
       switch (option) {
+        case 'fox_algorithm':
+          fbzFox$Algorithm();
+        case 'fox_ffi':
+          fbzFox$FFI();
         case 'classic_1':
           fbzClassic1();
         case 'classic_2':
           fbzClassic2();
-        case 'fox_algorithm':
-          fbzFox$Algorithm();
         case 'psycho_1_1':
           fbzPsycho1$1();
         case 'psycho_1':
@@ -52,8 +75,12 @@ void main(List<String> args) => runZonedGuarded<void>(() async {
           await fbzPsycho7();
         case 'psycho_8':
           fbzPsycho8();
+        case '':
+          print('No algorithm specified');
+          print(parser.usage);
+          io.exit(1);
         default:
-          print('Unknown option');
+          print('Unknown option: $option');
           io.exit(1);
       }
       io.exit(0);
