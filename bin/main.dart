@@ -49,7 +49,7 @@ void main(List<String> args) => runZonedGuarded<void>(() async {
         case 'psycho_6':
           fbzPsycho6();
         case 'psycho_7':
-          fbzPsycho7();
+          await fbzPsycho7();
         case 'psycho_8':
           fbzPsycho8();
         default:
