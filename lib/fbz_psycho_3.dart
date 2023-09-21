@@ -1,12 +1,15 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Pipeline-oriented programming by immutable objects
-void main(List<String> args) {
-  for (var i = 0; i < 31; i++) {
+void fbzPsycho3() {
+  for (var i = 0; i < totalCount; i++) {
     final output = FizzBazzOutput(number: i, output: '')
         .handle(divisor: 15, message: 'FizzBuzz,')
         .handle(divisor: 3, message: 'Fizz,')
         .handle(divisor: 5, message: 'Buzz,')
         .map();
+    if (output == null) continue;
     print(output);
   }
 }
@@ -37,9 +40,9 @@ class FizzBazzOutput {
     );
   }
 
-  String map() {
+  String? map() {
     if (output.isEmpty) {
-      return '$number,';
+      return null;
     }
     return output;
   }

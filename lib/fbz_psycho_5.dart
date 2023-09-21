@@ -1,7 +1,9 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Decorator Pattern
-void main(List<String> args) {
-  final fbOutput = FizzBuzzOutput(
+void fbzPsycho5() {
+  const fbOutput = FizzBuzzOutput(
     outputCapable: BuzzCapable(
       outputCapable: FizzCapable(
         outputCapable: FizzBuzzCapable(
@@ -11,8 +13,9 @@ void main(List<String> args) {
     ),
   );
 
-  for (var i = 0; i < 31; i++) {
+  for (var i = 0; i < totalCount; i++) {
     final output = fbOutput.getFor(number: i);
+    if (output == null) continue;
     print(output);
   }
 }
@@ -23,10 +26,10 @@ class FizzBuzzOutput {
 
   final OutputCapable outputCapable;
 
-  String getFor({required int number}) {
+  String? getFor({required int number}) {
     final text = outputCapable.getOutputText(number: number);
     if (text.isEmpty) {
-      return '$number,';
+      return null;
     }
     return text;
   }
@@ -54,6 +57,7 @@ abstract class OutputCapable {
 class BuzzCapable extends OutputCapable {
   const BuzzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override
@@ -66,6 +70,7 @@ class BuzzCapable extends OutputCapable {
 class FizzCapable extends OutputCapable {
   const FizzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override
@@ -78,6 +83,7 @@ class FizzCapable extends OutputCapable {
 class FizzBuzzCapable extends OutputCapable {
   const FizzBuzzCapable({required this.outputCapable});
 
+  @override
   final OutputCapable outputCapable;
 
   @override

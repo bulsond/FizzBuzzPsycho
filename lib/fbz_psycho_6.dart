@@ -1,7 +1,9 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Chain of Responsibility Pattern
-void main(List<String> args) {
-  final output = FizzBuzzOutput(
+void fbzPsycho6() {
+  const output = FizzBuzzOutput(
     handler: FizzBuzzHandler(
       next: FizzHandler(
         next: BuzzHandler(
@@ -10,7 +12,7 @@ void main(List<String> args) {
       ),
     ),
   );
-  for (var i = 0; i < 31; i++) {
+  for (var i = 0; i < totalCount; i++) {
     output.printFor(number: i);
   }
 }
@@ -36,7 +38,6 @@ abstract class Handler {
 
   void handle({required int number}) {
     if (message.isEmpty) {
-      print(number);
       return;
     }
     if (number % divisor == 0) {

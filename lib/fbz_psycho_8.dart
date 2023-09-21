@@ -1,16 +1,17 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Using a Result object
-void main(List<String> args) {
-  for (var i = 0; i < 31; i++) {
+void fbzPsycho8() {
+  for (var i = 0; i < totalCount; i++) {
     final result = FizzBuzzResult.number(number: i)
-        .collate((value) => value % 15 == 0, 'FizzBuzz,')
-        .collate((value) => value % 3 == 0, 'Fizz,')
-        .collate((value) => value % 5 == 0, 'Buzz,');
+        .collate((value) => value % fizzBuzzNumber == 0, 'FizzBuzz,')
+        .collate((value) => value % fizzNumber == 0, 'Fizz,')
+        .collate((value) => value % buzzNumber == 0, 'Buzz,');
     if (result.isMessage) {
       print(result.message);
       continue;
     }
-    print(result.number);
   }
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -24,13 +25,11 @@ class FizzBuzzResult {
   final int number;
   final String message;
 
-  factory FizzBuzzResult.number({required int number}) {
-    return FizzBuzzResult(number: number, message: '');
-  }
+  factory FizzBuzzResult.number({required int number}) =>
+      FizzBuzzResult(number: number, message: '');
 
-  factory FizzBuzzResult.message({required String message}) {
-    return FizzBuzzResult(number: -1, message: message);
-  }
+  factory FizzBuzzResult.message({required String message}) =>
+      FizzBuzzResult(number: -1, message: message);
 
   bool get isNumber => message.isEmpty;
   bool get isMessage => message.isNotEmpty;
