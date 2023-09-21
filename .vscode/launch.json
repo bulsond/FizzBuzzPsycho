@@ -49,7 +49,7 @@
             "preLaunchTask": "build:ffi:release"
         },
         {
-            "name": "[test] FBZ",
+            "name": "[test] All FBZ algorithms",
             "type": "dart",
             "request": "launch",
             "cwd": "${workspaceFolder}",

@@ -5,11 +5,14 @@ import 'package:fbz/src/constant.dart';
 import 'package:ffi/ffi.dart';
 import 'package:path/path.dart' as p;
 
-final DynamicLibrary _lib = io.Platform.isWindows
-    ? DynamicLibrary.open(p.join('build', 'libfizzbuzz.dll'))
-    : DynamicLibrary.open(p.join('build', 'libfizzbuzz.so'));
+final DynamicLibrary _lib = DynamicLibrary.open(io.Directory.current
+    .listSync(recursive: true, followLinks: false)
+    .whereType<io.File>()
+    .map<String>((file) => file.path)
+    .where((path) => p.basenameWithoutExtension(path) == 'libfizzbuzz')
+    .first);
 
-final _fn = _lib.lookupFunction<
+final int Function(int, int, int, Pointer<Int32>) _fn = _lib.lookupFunction<
     Int32 Function(Int32, Int32, Int32, Pointer<Int32>),
     int Function(int, int, int, Pointer<Int32>)>('fizz_buzz');
 
@@ -22,7 +25,8 @@ void fbzFox$FFI() {
   final resultPointer = calloc<Int32>(totalCount);
   try {
     var count = _fn(totalCount, fizzNumber, buzzNumber, resultPointer);
-    // if-else is faster than switch
+
+    /* for (final value in resultPointer.asTypedList(count)) { */
     for (var i = 0, value = resultPointer[i];
         i < count;
         i++, value = resultPointer[i]) {

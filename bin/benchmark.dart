@@ -17,6 +17,13 @@ import 'package:fbz/fbz_psycho_6.dart';
 import 'package:fbz/fbz_psycho_7.dart';
 import 'package:fbz/fbz_psycho_8.dart';
 
+/// Benchmark for all FizzBuzz algorithms
+///
+/// How to run:
+/// dart run bin/benchmark.dart
+///
+/// dart compile exe bin/benchmark.dart -o benchmark.exe
+/// ./benchmark.exe
 void main() => Future<void>(() async {
       $initFox$FFI$DynamicLibrary();
       final cases = <({String name, FutureOr<void> Function() fn})>[

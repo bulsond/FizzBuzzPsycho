@@ -50,6 +50,11 @@ target_include_directories(libfizzbuzz PUBLIC ${LIBFIZZBUZZ_INCLUDE_DIRS})
 ## Link with the libuv, llhttp_static and pthread targets
 #target_link_libraries(libfizzbuzz PRIVATE PkgConfig::LIBUV llhttp_static ${CMAKE_THREAD_LIBS_INIT})
 
+#find_package(OpenMP)
+#if(OpenMP_C_FOUND)
+#    target_link_libraries(libfizzbuzz PRIVATE OpenMP::OpenMP_C)
+#endif()
+
 target_compile_options(libfizzbuzz PRIVATE
   -std=c17
 )
@@ -60,13 +65,17 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     -fansi-escape-codes
     -O0
     -g
+    -fopenmp
   )
 else()
   target_compile_options(libfizzbuzz PRIVATE
     -O3
-#   -Wall
-#   -Wextra
-#   -pedantic
+    -march=native
+    -funroll-loops
+    -fopenmp
+    -Wall
+    -Wextra
+    -pedantic
     -Werror
   )
 endif()

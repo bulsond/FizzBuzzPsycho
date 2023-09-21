@@ -54,6 +54,11 @@ format:
 	@dart format -l 80 --fix .
 	@dart fix --apply .
 
+# Compile
+compile: get ffi-release
+	@dart compile exe bin/main.dart -o fbz.exe
+	@dart compile exe bin/benchmark.dart -o benchmark.exe
+
 # Prepare build directory
 _prepare-build-dir:
 	@mkdir $(BUILD_DIR) || true
