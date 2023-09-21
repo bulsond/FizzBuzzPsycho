@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Fox#1",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "local"
+            },
+            "program": "${workspaceFolder}/bin/main.dart",
+            "args": [
+                "fox_1"
+            ],
+            "toolArgs": [],
+            "console": "debugConsole",
+        },
+        {
+            "name": "[test] FBZ",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "test"
+            },
+            "program": "${workspaceFolder}/test/fbz_test.dart",
+            "args": [],
+            "toolArgs": [
+                "--color",
+                "--debug",
+                "--coverage=.coverage",
+                "--reporter=expanded",
+                "--platform=vm", // chrome
+                "--file-reporter=json:.coverage/tests.json",
+                "--timeout=30s",
+                "--concurrency=12"
+                /* "--name=handles failed connection attempts" */
+            ],
+            "console": "debugConsole",
+            "runTestsOnDevice": false,
+            "templateFor": "test",
+        },
+    ]
+}

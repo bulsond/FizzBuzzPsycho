@@ -1,7 +1,9 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Replacing if-else conditions with enum
-void main(List<String> args) {
-  for (var i = 0; i < 31; i++) {
+void fbzPsycho2() {
+  for (var i = 0; i < totalCount; i++) {
     OutputType.selectBy(number: i).output(number: i);
   }
 }
@@ -85,5 +87,5 @@ class NumberOutput implements Output {
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print('${number},');
+  void call({required int number}) {}
 }

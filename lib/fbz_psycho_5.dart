@@ -1,6 +1,8 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Decorator Pattern
-void main(List<String> args) {
+void fbzPsycho5() {
   final fbOutput = FizzBuzzOutput(
     outputCapable: BuzzCapable(
       outputCapable: FizzCapable(
@@ -11,8 +13,9 @@ void main(List<String> args) {
     ),
   );
 
-  for (var i = 0; i < 31; i++) {
+  for (var i = 0; i < totalCount; i++) {
     final output = fbOutput.getFor(number: i);
+    if (output == null) continue;
     print(output);
   }
 }
@@ -23,10 +26,10 @@ class FizzBuzzOutput {
 
   final OutputCapable outputCapable;
 
-  String getFor({required int number}) {
+  String? getFor({required int number}) {
     final text = outputCapable.getOutputText(number: number);
     if (text.isEmpty) {
-      return '$number,';
+      return null;
     }
     return text;
   }

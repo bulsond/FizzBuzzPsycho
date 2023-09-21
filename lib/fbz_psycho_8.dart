@@ -1,16 +1,17 @@
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Using a Result object
-void main(List<String> args) {
-  for (var i = 0; i < 31; i++) {
+void fbzPsycho8() {
+  for (var i = 0; i < totalCount; i++) {
     final result = FizzBuzzResult.number(number: i)
-        .collate((value) => value % 15 == 0, 'FizzBuzz,')
-        .collate((value) => value % 3 == 0, 'Fizz,')
-        .collate((value) => value % 5 == 0, 'Buzz,');
+        .collate((value) => value % fizzBuzzNumber == 0, 'FizzBuzz,')
+        .collate((value) => value % fizzNumber == 0, 'Fizz,')
+        .collate((value) => value % buzzNumber == 0, 'Buzz,');
     if (result.isMessage) {
       print(result.message);
       continue;
     }
-    print(result.number);
   }
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:fbz/src/constant.dart';
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Using a StreamController
-void main(List<String> args) {
+Future<void> fbzPsycho7() async {
+  final controller = StreamController(sync: true);
   final fbOutput = FizzBuzzOutput(
-    controller: StreamController(),
+    controller: controller,
     fizzBuzzTrans: FizzBuzzTrans(),
     fizzTrans: FizzTrans(),
     buzzTrans: BuzzTrans(),
@@ -12,9 +15,11 @@ void main(List<String> args) {
 
   fbOutput.init();
 
-  for (var i = 0; i < 31; i++) {
+  for (var i = 0; i < totalCount; i++) {
     fbOutput.outputFor(number: i);
   }
+
+  controller.close();
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -57,7 +62,8 @@ class FizzBuzzOutput {
             ),
           ),
         )
-        .listen((e) => print(e));
+        .where((data) => data is String)
+        .listen(print);
   }
 
   void outputFor({required int number}) {
