@@ -1,9 +1,7 @@
-import 'package:fbz/src/constant.dart';
-
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Replacing if-else conditions with enum
-void fbzPsycho2() {
-  for (var i = 0; i < totalCount; i++) {
+void main(List<String> args) {
+  for (var i = 0; i < 31; i++) {
     OutputType.selectBy(number: i).output(number: i);
   }
 }
@@ -20,7 +18,7 @@ enum OutputType {
   final Output output;
 
   static OutputType selectBy({required int number}) {
-    for (final output in OutputType.values) {
+    for (var output in OutputType.values) {
       if (number % output.output.divisor == 0) {
         return output;
       }
@@ -45,51 +43,47 @@ abstract interface class Output {
 class FizzBuzzOutput implements Output {
   const FizzBuzzOutput();
 
-  // ignore: avoid_field_initializers_in_const_classes
   final int _divisor = Output.fbDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print(Output.fbOutput);
+  void call({required int number}) => print('${Output.fbOutput}');
 }
 
 class FizzOutput implements Output {
   const FizzOutput();
 
-  // ignore: avoid_field_initializers_in_const_classes
   final int _divisor = Output.fDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print(Output.fOutput);
+  void call({required int number}) => print('${Output.fOutput}');
 }
 
 class BuzzOutput implements Output {
   const BuzzOutput();
 
-  // ignore: avoid_field_initializers_in_const_classes
   final int _divisor = Output.bDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) => print(Output.bOutput);
+  void call({required int number}) => print('${Output.bOutput}');
 }
 
 class NumberOutput implements Output {
   const NumberOutput();
 
-  // ignore: avoid_field_initializers_in_const_classes
   final int _divisor = Output.nDivisor;
 
   @override
   int get divisor => _divisor;
 
   @override
-  void call({required int number}) {}
+  void call({required int number}) => print('${number},');
 }

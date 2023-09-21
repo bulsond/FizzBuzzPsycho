@@ -1,16 +1,13 @@
-import 'package:fbz/src/constant.dart';
-
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 /// Pipeline-oriented programming by interconnected objects
-void fbzPsycho4$1() {
-  for (var i = 0; i < totalCount; i++) {
-    final output = const FizzBuzzInitiator()
+void main(List<String> args) {
+  for (var i = 0; i < 31; i++) {
+    final output = FizzBuzzInitiator()
         .run(number: i)
         .checkToFizzBuzz()
         .checkToFizz()
         .checkToBuzz()
         .map();
-    if (output == null) continue;
     print(output);
   }
 }
@@ -25,8 +22,9 @@ class FizzBuzzData {
   final String output;
   final int number;
 
-  FizzBuzzData copyWith({required String output}) =>
-      FizzBuzzData(number: number, output: output);
+  FizzBuzzData copyWith({required String output}) {
+    return FizzBuzzData(number: number, output: output);
+  }
 }
 
 class FizzBuzzInitiator {
@@ -37,7 +35,9 @@ class FizzBuzzInitiator {
     return FizzBuzzCheckable(data: fzd);
   }
 
-  FizzBuzzCheckable run({required int number}) => call(number);
+  FizzBuzzCheckable run({required int number}) {
+    return call(number);
+  }
 }
 
 class FizzBuzzCheckable {
@@ -46,9 +46,9 @@ class FizzBuzzCheckable {
   final FizzBuzzData data;
 
   FizzCheckable call() {
-    var notCheck = false;
-    var newData = data;
-    if (data.number % fizzBuzzNumber == 0) {
+    bool notCheck = false;
+    FizzBuzzData newData = data;
+    if (data.number % 15 == 0) {
       notCheck = true;
       newData = data.copyWith(output: 'FizzBuzz,');
     }
@@ -71,9 +71,9 @@ class FizzCheckable {
         isCheckedData: isCheckedData,
       );
     }
-    var notCheck = false;
-    var newData = data;
-    if (data.number % fizzNumber == 0) {
+    bool notCheck = false;
+    FizzBuzzData newData = data;
+    if (data.number % 3 == 0) {
       notCheck = true;
       newData = data.copyWith(output: 'Fizz,');
     }
@@ -96,8 +96,8 @@ class BuzzCheckable {
     if (isCheckedData) {
       return Mappable(data: data);
     }
-    var newData = data;
-    if (data.number % buzzNumber == 0) {
+    FizzBuzzData newData = data;
+    if (data.number % 5 == 0) {
       newData = data.copyWith(output: 'Buzz,');
     }
     return Mappable(data: newData);
@@ -111,12 +111,12 @@ class Mappable {
 
   final FizzBuzzData data;
 
-  String? call() {
+  String call() {
     if (data.output.isEmpty) {
-      return null;
+      return '${data.number},';
     }
     return data.output;
   }
 
-  String? map() => call();
+  String map() => call();
 }
