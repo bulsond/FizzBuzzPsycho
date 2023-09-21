@@ -33,6 +33,21 @@
             "preLaunchTask": "build:ffi:release"
         },
         {
+            "name": "Fox Switch",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ENVIRONMENT": "local"
+            },
+            "program": "${workspaceFolder}/bin/main.dart",
+            "args": [
+                "-a=fox_switch"
+            ],
+            "toolArgs": [],
+            "console": "debugConsole"
+        },
+        {
             "name": "Benchmark",
             "type": "dart",
             "request": "launch",

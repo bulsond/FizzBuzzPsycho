@@ -5,6 +5,7 @@ import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
 import 'package:fbz/fbz_fox_algorithm.dart';
 import 'package:fbz/fbz_fox_ffi.dart';
+import 'package:fbz/fbz_fox_switch.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -29,6 +30,7 @@ void main() => Future<void>(() async {
       final cases = <({String name, FutureOr<void> Function() fn})>[
         (name: 'fox_algorithm', fn: fbzFox$Algorithm),
         (name: 'fox_ffi', fn: fbzFox$FFI),
+        (name: 'fox_switch', fn: fbzFox$Switch),
         (name: 'classic_1', fn: fbzClassic1),
         (name: 'classic_2', fn: fbzClassic2),
         (name: 'psycho_1_1', fn: fbzPsycho1$1),

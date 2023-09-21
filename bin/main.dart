@@ -6,6 +6,7 @@ import 'package:fbz/fbz_classic_1.dart';
 import 'package:fbz/fbz_classic_2.dart';
 import 'package:fbz/fbz_fox_algorithm.dart';
 import 'package:fbz/fbz_fox_ffi.dart';
+import 'package:fbz/fbz_fox_switch.dart';
 import 'package:fbz/fbz_psycho_1.dart';
 import 'package:fbz/fbz_psycho_1_1.dart';
 import 'package:fbz/fbz_psycho_2.dart';
@@ -49,6 +50,8 @@ void main(List<String> args) => runZonedGuarded<void>(() async {
           fbzFox$Algorithm();
         case 'fox_ffi':
           fbzFox$FFI();
+        case 'fox_switch':
+          fbzFox$Switch();
         case 'classic_1':
           fbzClassic1();
         case 'classic_2':
