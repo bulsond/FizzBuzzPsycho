@@ -15,3 +15,4 @@ Various ways to solve one well-known riddle
 7. [Chain of Responsibility Pattern](src/fbz_psycho_6.dart)
 8. [Using a StreamController](src/fbz_psycho_7.dart)
 9. [Using a Result object](src/fbz_psycho_8.dart)
+10. [Using a Switch. by @PlugFox](src/fbz_fox_switch.dart)
